@@ -8,14 +8,12 @@ Add this configuration to your MCP-compatible client:
 
 ```json
 {
-  "mcp": {
-    "servers": {
+  ""mcpServers":{
       "browser-use": {
         "command": "docker",
         "args": ["run", "-i", "--rm", "groos12/browser-use-mcp"]
       }
     }
-  }
 }
 ```
 
