@@ -77,7 +77,7 @@ Add this configuration to your MCP-compatible client:
     "servers": {
       "browser-use": {
         "command": "docker",
-        "args": ["run", "-i", "--rm", "dylangroos/browser-use-mcp"]
+        "args": ["run", "-i", "--rm", "groos12/browser-use-mcp"]
       }
     }
   }
@@ -111,19 +111,19 @@ To use the pre-built image from GHCR:
 
 This repository is configured with GitHub Actions to automatically build and push to Docker Hub.
 
-The image is available at: `dylangroos/browser-use-mcp`
+The image is available at: `groos12/browser-use-mcp`
 
 You can pull it directly:
 
 ```bash
-docker pull dylangroos/browser-use-mcp
+docker pull groos12/browser-use-mcp
 ```
 
 Alternatively, you can build and push manually:
 
 1. Build the image locally:
    ```bash
-   docker build -t dylangroos/browser-use-mcp .
+   docker build -t groos12/browser-use-mcp .
    ```
 
 2. Log in to Docker Hub:
@@ -133,7 +133,7 @@ Alternatively, you can build and push manually:
 
 3. Push the image:
    ```bash
-   docker push dylangroos/browser-use-mcp
+   docker push groos12/browser-use-mcp
    ```
 
 ## Notes
