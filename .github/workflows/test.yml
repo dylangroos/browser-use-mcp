@@ -1,0 +1,48 @@
+name: Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'npm'
+    
+    - name: Install Node.js dependencies
+      run: npm ci
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest pytest-asyncio
+    
+    - name: Lint with ESLint
+      run: |
+        npm install eslint --no-save
+        npx eslint src --ext .ts || true
+    
+    - name: Build TypeScript
+      run: npm run build
+    
+    - name: Test Docker build
+      run: |
+        docker build -t test-mcp-browser-use .
+        docker images | grep test-mcp-browser-use 
