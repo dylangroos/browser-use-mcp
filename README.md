@@ -25,21 +25,6 @@ This tool allows you to navigate to a URL and perform browser actions according 
 **Returns:**
 A text summary of the browser interaction history and results.
 
-## Usage Example
-
-Using the tool in an MCP-compatible client:
-
-```javascript
-// Example of using the tool in an MCP client
-const response = await client.callTool("browser-use", "instruct-browser", {
-  url: "https://www.google.com/search?q=things+to+do+in+paris",
-  instructions: "Extract the top 5 tourist attractions from the search results."
-});
-
-console.log(response.content[0].text);
-// Output will contain a summary of the browser interaction
-```
-
 The tool leverages the `browser-use` library with Google's Gemini model to perform intelligent browser automation.
 
 ## Docker Setup
