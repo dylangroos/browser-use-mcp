@@ -1,4 +1,4 @@
-# Browser-Use MCP
+# Browser-Use MCP Server
 
 A Model Context Protocol server that provides browser automation capabilities.
 
