@@ -1,6 +1,21 @@
-# Browser-Use MCP
+# Browser-Use MCP Server
 
 A Model Context Protocol server that provides browser automation capabilities.
+
+## MCP Configuration
+
+Add this configuration to your MCP-compatible client:
+
+```json
+{
+  "mcpServers":{
+      "browser-use": {
+        "command": "docker",
+        "args": ["run", "-i", "--rm", "groos12/browser-use-mcp"]
+      }
+    }
+}
+```
 
 ## Features
 
@@ -67,74 +82,7 @@ docker run -i --rm --init \
   mcp/browser-use
 ```
 
-## MCP Configuration
 
-Add this configuration to your MCP-compatible client:
-
-```json
-{
-  "mcp": {
-    "servers": {
-      "browser-use": {
-        "command": "docker",
-        "args": ["run", "-i", "--rm", "groos12/browser-use-mcp"]
-      }
-    }
-  }
-}
-```
-
-## Publishing to Container Registry
-
-For cleaner integration and distribution, this project publishes Docker images to container registries.
-
-### Option 1: GitHub Container Registry (GHCR)
-
-This repository is configured with GitHub Actions workflows to automatically build and publish the image to GitHub Container Registry.
-
-To use the pre-built image from GHCR:
-
-```json
-{
-  "mcp": {
-    "servers": {
-      "browser-use": {
-        "command": "docker",
-        "args": ["run", "-i", "--rm", "ghcr.io/YOUR_USERNAME/browser-use-mcp"]
-      }
-    }
-  }
-}
-```
-
-### Option 2: Docker Hub
-
-This repository is configured with GitHub Actions to automatically build and push to Docker Hub.
-
-The image is available at: `groos12/browser-use-mcp`
-
-You can pull it directly:
-
-```bash
-docker pull groos12/browser-use-mcp
-```
-
-Alternatively, you can build and push manually:
-
-1. Build the image locally:
-   ```bash
-   docker build -t groos12/browser-use-mcp .
-   ```
-
-2. Log in to Docker Hub:
-   ```bash
-   docker login
-   ```
-
-3. Push the image:
-   ```bash
-   docker push groos12/browser-use-mcp
-   ```
 
 ## Notes
 
